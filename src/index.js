@@ -9,6 +9,8 @@ const touches = new Map();
  * @param {TouchEvent} ev
  */
 function updateTouches(ev) {
+    ev.preventDefault();
+
     const now = Date.now();
 
     for (const touchEvent of ev.touches) {
