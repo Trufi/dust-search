@@ -35,5 +35,5 @@ function updateTouches(ev) {
     }
 }
 
-window.addEventListener('touchmove', updateTouches);
-window.addEventListener('touchstart', updateTouches);
+window.addEventListener('touchmove', updateTouches, { passive: false });
+window.addEventListener('touchstart', updateTouches, { passive: false });
