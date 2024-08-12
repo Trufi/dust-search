@@ -23,7 +23,11 @@
                 height: 130px;
                 border: 1px solid red;
                 border-radius: 999px;
-                transform: translate(-50%, -50%);
+                margin-top: -65px;
+                margin-left: -65px;
+                pointer-events: none;
+                will-change: transform;
+                transform: translate3d(0, 0, 0);
             }
             .touch::after {
                 position: absolute;
@@ -34,7 +38,8 @@
                 content: '';
                 border: 1px solid rgb(135, 0, 0);
                 border-radius: 999px;
-                transform: translate(-50%, -50%);
+                margin-top: -20px;
+                margin-left: -20px;
             }
         </style>
     </head>

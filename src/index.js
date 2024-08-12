@@ -9,7 +9,6 @@ const touches = new Map();
  * @param {TouchEvent} ev
  */
 function updateTouches(ev) {
-    console.log(ev);
     const now = Date.now();
 
     for (const touchEvent of ev.touches) {
@@ -24,8 +23,7 @@ function updateTouches(ev) {
             touches.set(touchEvent.identifier, touch);
         }
 
-        touch.div.style.top = touchEvent.clientY + 'px';
-        touch.div.style.left = touchEvent.clientX + 'px';
+        touch.div.style.transform = `translate3d(${touchEvent.clientX}px, ${touchEvent.clientY}px, 0)`;
         touch.updateTime = now;
     }
 
