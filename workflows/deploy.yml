@@ -1,0 +1,29 @@
+name: Deploy
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup node 🔧
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Deploy 🚀
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: deploy
+          password: ${{ secrets.PASSWORD }}
+          source: 'src/*'
+          target: 'static-projects/dust-finder'
+          strip_components: 1
+          rm: true
